@@ -3,54 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login & Register Forms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f2f5;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #1a73e8;
+        }
+
+        .toggle-form {
+            margin: 15px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .toggle-form a {
+            color: #1a73e8;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #1a73e8;
+        }
+
+        .button {
+            background: #1a73e8;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: #1557b0;
+        }
+
+        .social-login {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        #forgot-password a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="form-container">
-            <div class="login-form" id="login">
-                <h2>Sign in</h2>
-                <div class="input-group">
-                    <span class="icon">👤</span>
-                    <input type="text" placeholder="Username">
+            <!-- Login Form -->
+            <form id="loginForm" class="form">
+                <h2 class="title">Hello, Welcome!</h2>
+                <div class="toggle-form">
+                    Don't have an account? <a onclick="showRegister()">Register</a>
                 </div>
                 <div class="input-group">
-                    <span class="icon">🔒</span>
-                    <input type="password" placeholder="Password">
+                    <input type="text" placeholder="Username" required>
                 </div>
-                <button class="btn">Login</button>
-                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
-            </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="button">Sign in</button>
+                <div id="forgot-password">
+                    <a href="#">Forget Password?</a>
+                </div>
+                <div class="social-login">
+                    <p>or login with social platforms</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn">F</button>
+                        <button type="button" class="social-btn">G</button>
+                        <button type="button" class="social-btn">T</button>
+                    </div>
+                </div>
+            </form>
 
-            <div class="register-form" id="register">
-                <h2>Register</h2>
-                <div class="input-group">
-                    <span class="icon">👤</span>
-                    <input type="text" placeholder="Username">
+            <!-- Register Form -->
+            <form id="registerForm" class="form hidden">
+                <h2 class="title">Welcome Back!</h2>
+                <div class="toggle-form">
+                    Already have an account? <a onclick="showLogin()">Login</a>
                 </div>
                 <div class="input-group">
-                    <span class="icon">🔒</span>
-                    <input type="password" placeholder="New Password">
+                    <input type="text" placeholder="Username" required>
                 </div>
                 <div class="input-group">
-                    <span class="icon">🔒</span>
-                    <input type="password" placeholder="Confirm Password">
+                    <input type="password" placeholder="New Password" required>
                 </div>
-                <button class="btn">Register</button>
-                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
-            </div>
-        </div>
-
-        <div class="toggle-container">
-            <div class="toggle-panel" id="togglePanel">
-                <h2 id="toggleTitle">Welcome Back!</h2>
-                <p id="toggleText">Already have an account?</p>
-                <button class="btn-outline" id="toggleBtn">Login</button>
-            </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Re-enter New Password" required>
+                </div>
+                <button type="submit" class="button">Register</button>
+            </form>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showRegister() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+        }
+
+        function showLogin() {
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        // Form validation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add login logic here
+            alert('Login functionality would go here');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = this.querySelector('input[type="password"]:nth-of-type(1)').value;
+            const confirmPassword = this.querySelector('input[type="password"]:nth-of-type(2)').value;
+            
+            if(password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            // Add registration logic here
+            alert('Registration successful!');
+        });
+    </script>
 </body>
 </html>
