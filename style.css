@@ -19,12 +19,13 @@ body {
   position: relative;
   width: 850px;
   height: 550px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 30px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .2);
   margin: 20px;
   overflow: hidden;
 }
+
 .form-box {
     position: absolute;
     width: 500%;
@@ -82,7 +83,7 @@ body {
     position: absolute;
     right: 20px;
     top: 50%;
-    transform: translate(-50%);
+    transform: translateY(-50%);
     font-size: 20px;
     color: #999;
 
@@ -90,9 +91,9 @@ body {
 .forgot-link{
     margin: -15px 0 15px;   
 }
-.forgot-link a {
-    color: #333;
+.forgot-link a {  
     font-size: 14.5px;
+    color: #333;
     text-decoration: none;
 }
 .btn{
