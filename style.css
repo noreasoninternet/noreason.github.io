@@ -242,7 +242,7 @@ body {
    }
     
 }
-@media screen and (max-width: 650px){
+@media screen and (max-width: 400px){
     .form-box {
         padding: 20px;
     }
