@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="login-form" id="login">
+                <h2>Sign in</h2>
+                <div class="input-group">
+                    <span class="icon">👤</span>
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" placeholder="Password">
+                </div>
+                <button class="btn">Login</button>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </div>
+
+            <div class="register-form" id="register">
+                <h2>Register</h2>
+                <div class="input-group">
+                    <span class="icon">👤</span>
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" placeholder="New Password">
+                </div>
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+                <button class="btn">Register</button>
+                <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-panel" id="togglePanel">
+                <h2 id="toggleTitle">Welcome Back!</h2>
+                <p id="toggleText">Already have an account?</p>
+                <button class="btn-outline" id="toggleBtn">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
